@@ -1,0 +1,37 @@
+{
+  "name": "celery-server",
+  "version": "1.0.0",
+  "description": "A task management app",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "biome lint && nodemon --watch src src/index.ts",
+    "build": "tsc",
+    "migrate": "dotenv -e .env.dev -- prisma migrate dev --schema src/prisma/schema.prisma",
+    "generate": "kysely-codegen --env-file .env.dev",
+    "format-w": "biome format --write",
+    "format-r": "biome format",
+    "lint-w": "biome lint --write",
+    "lint-r": "biome lint"
+  },
+  "repository": "https://github.com/KIunk/celery-server.git",
+  "author": "Klunk <brandonmurry168@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "kysely": "^0.27.4",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.9.0",
+    "@types/pg": "^8.11.10",
+    "kysely-codegen": "^0.17.0",
+    "nodemon": "^3.1.7",
+    "prisma": "^5.22.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  }
+}
