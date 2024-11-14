@@ -1,3 +1,5 @@
-import { config } from "./config/config";
+import { App } from "./app";
 
-console.log(config.nodeEnv);
+const app = new App();
+
+app.start();

@@ -1,5 +1,5 @@
 import { Kysely, PostgresDialect } from "kysely";
-import { DB } from "kysely-codegen";
+import type { DB } from "kysely-codegen";
 import { config } from "./config";
 import pg from "pg";
 const { Pool } = pg;
