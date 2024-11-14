@@ -2,6 +2,7 @@ import express, { type Express } from "express";
 import helmet from "helmet";
 import morgan from "morgan";
 import { config } from "./config/config";
+import apiRouter from "./api";
 
 export class App {
 	private app: Express;
@@ -15,10 +16,13 @@ export class App {
 
 	private configureMiddleware() {
 		this.app.use(helmet());
+		this.app.use(express.json());
 		this.app.use(morgan("dev"));
 	}
 
-	private configureRoutes() {}
+	private configureRoutes() {
+		this.app.use("/api", apiRouter);
+	}
 
 	public start() {
 		this.app.listen(config.port, () => {
